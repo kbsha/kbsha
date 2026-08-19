@@ -121,7 +121,7 @@ Currently completing an **MSc in Computer Engineering** while actively conductin
 ## 🏆 Achievements
 
 - 🏆 AI for Good Fellow
-- 🏆 AIMS Researcher
+- 🏆 AIMS RIC Researcher
 - 🏆 National Technology Expo Participant
 - 🏆 Published AI Research
 - 🏆 Hackathon Finalist
