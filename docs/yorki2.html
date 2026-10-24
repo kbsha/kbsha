@@ -1,0 +1,1489 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d13">
+
+<title>For Yorki ♡ A Little Universe of You</title>
+
+<style>
+:root {
+  --bg: #100d13;
+  --panel: #211824;
+  --cream: #f7efe6;
+  --muted: #c5b5c6;
+  --gold: #e8c68b;
+  --rose: #d99aa9;
+  --line: #ffffff20;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at 15% 0%, #382237, transparent 42%),
+    radial-gradient(ellipse at 90% 28%, #24233b, transparent 40%),
+    var(--bg);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+button, select, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: var(--cream);
+  background: #ffffff0c;
+  border: 1px solid #e8c68b77;
+  border-radius: 999px;
+  padding: 11px 17px;
+  transition: .25s;
+}
+
+button:hover {
+  background: #e8c68b20;
+  transform: translateY(-2px);
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff4d8;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  to {
+    opacity: .1;
+    transform: scale(.5);
+  }
+}
+
+@keyframes glow {
+  50% {
+    text-shadow:
+      0 0 25px #e8c68b88,
+      0 0 45px #d99aa944;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+
+@keyframes balloonFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-16px) rotate(3deg); }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes burst {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(160deg) scale(.2);
+  }
+}
+
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: scale(.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--rose), var(--gold));
+  z-index: 20;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px clamp(14px, 4vw, 50px);
+  background: #100d13e8;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  color: var(--gold);
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.navright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+select {
+  color: var(--cream);
+  background: #211824;
+  border: 1px solid #e8c68b66;
+  border-radius: 999px;
+  padding: 9px;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 75px 22px 90px;
+  position: relative;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: .75rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: normal;
+  line-height: 1.05;
+  margin: 22px 0;
+  animation: glow 4s infinite;
+}
+
+.hero h1 em {
+  color: var(--rose);
+}
+
+.hero p {
+  max-width: 680px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.pill {
+  display: inline-block;
+  padding: 12px 22px;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid #e8c68b77;
+  border-radius: 999px;
+  transition: .25s;
+}
+
+.pill:hover {
+  box-shadow: 0 0 28px #e8c68b33;
+}
+
+.scrollhint {
+  position: absolute;
+  bottom: 24px;
+  color: #c5b5c699;
+  font-size: .75rem;
+  letter-spacing: .12em;
+}
+
+section {
+  width: min(1050px, 92%);
+  margin: auto;
+  padding: 65px 0;
+}
+
+.sectionhead {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.sectionhead h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: normal;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+.sectionhead p {
+  color: var(--muted);
+  max-width: 720px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 25px;
+  background: linear-gradient(145deg, #ffffff0c, #ffffff03);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #e8c68b77;
+  box-shadow: 0 18px 45px #0004;
+}
+
+.icon {
+  font-size: 1.7rem;
+}
+
+.card h3 {
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.quote {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  line-height: 1.5;
+}
+
+.quote em {
+  color: var(--rose);
+}
+
+.letter {
+  max-width: 800px;
+  margin: auto;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid #e8c68b55;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #211824ee, #15121bea);
+  box-shadow: 0 20px 70px #0003;
+}
+
+.letter p {
+  color: #e5d9df;
+  font-size: 1.08rem;
+}
+
+.signature {
+  color: var(--gold) !important;
+  text-align: right;
+  font-style: italic;
+}
+
+.revealbox {
+  text-align: center;
+  padding: 25px;
+  border: 1px dashed #d99aa977;
+  border-radius: 18px;
+  background: #d99aa90a;
+  margin-top: 22px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.revealtext {
+  color: var(--rose);
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin: 15px auto 0;
+  animation: letterReveal .5s ease;
+}
+
+/* PHOTO GALLERY */
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.photo-frame {
+  position: relative;
+  min-height: 300px;
+  padding: 12px;
+  background: #f1e4d2;
+  border-radius: 5px;
+  box-shadow: 0 12px 35px #0007;
+  transform: rotate(-2deg);
+  transition: .4s;
+}
+
+.photo-frame:nth-child(2) {
+  transform: rotate(2deg);
+  margin-top: 25px;
+}
+
+.photo-frame:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.photo-frame:hover {
+  transform: rotate(0) translateY(-8px) scale(1.02);
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background: #241b29;
+}
+
+.photo-caption {
+  text-align: center;
+  color: #362536;
+  font-size: 1rem;
+  padding: 8px 2px 0;
+}
+
+.photo-upload {
+  display: block;
+  margin: 10px auto 0;
+  color: #362536;
+  font-family: Arial, sans-serif;
+  font-size: .75rem;
+  max-width: 100%;
+}
+
+.photo-hint {
+  color: var(--muted);
+  text-align: center;
+  font-size: .9rem;
+  margin-top: 22px;
+}
+
+/* BIBLE SECTION */
+
+.bible-card {
+  max-width: 850px;
+  margin: auto;
+  padding: clamp(24px, 5vw, 45px);
+  text-align: center;
+  border: 1px solid #e8c68b66;
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at top, #49304788, transparent 70%),
+    #ffffff06;
+}
+
+.cross {
+  color: var(--gold);
+  font-size: 2.4rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.verse {
+  margin: 25px auto;
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.verse blockquote {
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  color: var(--cream);
+  margin: 0 0 8px;
+}
+
+.verse cite {
+  color: var(--gold);
+  font-style: normal;
+  font-size: .9rem;
+}
+
+.blessing {
+  color: var(--rose);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 1.5;
+  margin-top: 28px;
+}
+
+/* BALLOON GAME */
+
+.balloon-game {
+  text-align: center;
+  padding: 35px 20px;
+  border: 1px solid #d99aa966;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #211824bb, #100d13aa);
+  overflow: hidden;
+}
+
+.balloon-instruction {
+  color: var(--muted);
+}
+
+.balloon-stage {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.balloon {
+  width: 115px;
+  height: 145px;
+  background:
+    radial-gradient(circle at 32% 25%, #ffffffaa, transparent 17%),
+    radial-gradient(circle at 35% 30%, #ffb9d0, #dc5689 60%, #9c285d);
+  border-radius: 50% 50% 46% 46%;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset -12px -12px 22px #5b103866,
+              0 0 35px #d99aa955;
+  animation: balloonFloat 2.5s ease-in-out infinite;
+  transition: transform .15s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 15px solid #b53d70;
+}
+
+.balloon:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 70px;
+  background: #e7c8d9;
+  top: 150px;
+  left: 50%;
+}
+
+.balloon-count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-shadow: 0 2px 8px #65113e;
+}
+
+.balloon.popped {
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+}
+
+.tap-count {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.birthday-burst {
+  font-size: clamp(2rem, 7vw, 4.8rem);
+  line-height: 1.2;
+  color: var(--gold);
+  text-shadow: 0 0 25px #e8c68b77;
+  animation: glow 2s infinite, letterReveal .8s ease;
+}
+
+.birthday-burst small {
+  display: block;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: var(--rose);
+  margin-top: 15px;
+}
+
+.balloon-controls {
+  margin-top: 20px;
+}
+
+/* YOUTUBE */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.video-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #18131d;
+}
+
+.video-frame {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-card h3 {
+  color: var(--gold);
+  font-weight: normal;
+  margin: 12px 15px 0;
+}
+
+.video-card p {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: 3px 15px 16px;
+}
+
+.birthday {
+  text-align: center;
+  padding: clamp(28px, 6vw, 65px);
+  border: 1px solid #e8c68b66;
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse at top, #49304799, transparent 70%),
+    #ffffff06;
+}
+
+.birthday h2 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+.birthday p {
+  max-width: 720px;
+  color: var(--muted);
+  margin: 18px auto;
+}
+
+.sparkle {
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+  font-size: 22px;
+  animation: burst .9s ease-out forwards;
+}
+
+footer {
+  text-align: center;
+  padding: 45px 18px 60px;
+  color: #b9a9ba;
+}
+
+@media (max-width: 760px) {
+  .grid,
+  .video-grid,
+  .photo-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-frame {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 12px !important;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  nav {
+    padding: 10px 12px;
+  }
+
+  .brand {
+    font-size: .6rem;
+  }
+
+  button, select {
+    padding: 8px 10px;
+    font-size: .82rem;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+
+<nav>
+  <div class="brand">A Little Universe · For Yorki</div>
+
+  <div class="navright">
+    <button type="button" onclick="sparkleBurst(event)">
+      ✧ Make a wish
+    </button>
+
+    <select id="language" aria-label="Choose language">
+      <option value="en">English</option>
+      <option value="am">አማርኛ</option>
+      <option value="ti">ትግርኛ</option>
+    </select>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">A birthday page, made with tenderness</div>
+
+    <h1>
+      For <em>Yorki</em><br>
+      a little universe of you
+    </h1>
+
+    <p>
+      For the girl who carries whole libraries in her mind,
+      art in her eyes, and a thousand quiet worlds inside her heart.
+    </p>
+
+    <a class="pill" href="#letter">
+      Open your little letter ↓
+    </a>
+  </div>
+
+  <div class="scrollhint">
+    SCROLL SLOWLY · THERE IS NO RUSH
+  </div>
+</header>
+
+<!-- CHAPTERS -->
+
+<section>
+  <div class="sectionhead">
+    <div class="eyebrow">CHAPTERS OF YOU</div>
+    <h2>A Few Things Worth Celebrating</h2>
+
+    <p>
+      Not because a birthday makes you valuable.
+      It simply gives the world another reason to say it out loud.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="icon">✦</div>
+      <h3>Your Beautiful Mind</h3>
+      <p>
+        You don't just read words—you seem to listen for the hidden
+        rooms behind them. Your curiosity makes ordinary conversations
+        feel like doors opening into new worlds.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="icon">☾</div>
+      <h3>Your Artistic Soul</h3>
+      <p>
+        There is something special about the way you notice things.
+        You remind me that beauty can be quiet, strange, imperfect,
+        and still unforgettable.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="icon">♡</div>
+      <h3>The Person You Are</h3>
+      <p>
+        You deserve kindness on your brightest days and on the days
+        when you don't feel bright at all. You never have to perform
+        to deserve tenderness.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <p class="quote">
+    “Some people make a room feel warmer.
+    Some make a story feel deeper.
+    <em>You somehow make the world feel more interesting.</em>”
+  </p>
+</section>
+
+<!-- THREE PHOTO MOMENTS -->
+
+<section id="photos">
+  <div class="sectionhead">
+    <div class="eyebrow">THREE LITTLE MOMENTS</div>
+    <h2>A Gallery Made Just for You</h2>
+
+    <p>
+      Three frames, three memories, and one beautiful person.
+      Add your favourite pictures of Yorki to make this page truly hers.
+    </p>
+  </div>
+
+  <div class="photo-gallery">
+
+    <div class="photo-frame">
+      <img id="photo1"
+           alt="Yorki photo one"
+           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='100%25' height='100%25' fill='%23241b29'/%3E%3Ctext x='50%25' y='46%25' fill='%23e8c68b' font-size='28' text-anchor='middle'%3EYour photo%3C/text%3E%3Ctext x='50%25' y='57%25' fill='%23d99aa9' font-size='22' text-anchor='middle'%3E%E2%99%A1%3C/text%3E%3C/svg%3E">
+
+      <div class="photo-caption">
+        The Beauty of Being You ♡
+      </div>
+
+      <input class="photo-upload"
+             type="file"
+             accept="image/*"
+             aria-label="Choose first photo"
+             onchange="loadPhoto(event, 'photo1')">
+    </div>
+
+    <div class="photo-frame">
+      <img id="photo2"
+           alt="Yorki photo two"
+           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='100%25' height='100%25' fill='%23241b29'/%3E%3Ctext x='50%25' y='46%25' fill='%23e8c68b' font-size='28' text-anchor='middle'%3EYour photo%3C/text%3E%3Ctext x='50%25' y='57%25' fill='%23d99aa9' font-size='22' text-anchor='middle'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+
+      <div class="photo-caption">
+        A Soul Full of Stories ✦
+      </div>
+
+      <input class="photo-upload"
+             type="file"
+             accept="image/*"
+             aria-label="Choose second photo"
+             onchange="loadPhoto(event, 'photo2')">
+    </div>
+
+    <div class="photo-frame">
+      <img id="photo3"
+           alt="Yorki photo three"
+           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='100%25' height='100%25' fill='%23241b29'/%3E%3Ctext x='50%25' y='46%25' fill='%23e8c68b' font-size='28' text-anchor='middle'%3EYour photo%3C/text%3E%3Ctext x='50%25' y='57%25' fill='%23d99aa9' font-size='22' text-anchor='middle'%3E%E2%98%BE%3C/text%3E%3C/svg%3E">
+
+      <div class="photo-caption">
+        A New Chapter Begins ☾
+      </div>
+
+      <input class="photo-upload"
+             type="file"
+             accept="image/*"
+             aria-label="Choose third photo"
+             onchange="loadPhoto(event, 'photo3')">
+    </div>
+
+  </div>
+
+  <p class="photo-hint">
+    Choose pictures from your device. The previews appear immediately.
+    For a permanent shared website, the pictures must also be uploaded
+    to the website or included as image files.
+  </p>
+</section>
+
+<!-- LETTER -->
+
+<section id="letter">
+  <div class="sectionhead">
+    <div class="eyebrow">SEALED WITH CARE</div>
+    <h2>A Letter for Your Heart</h2>
+  </div>
+
+  <div class="letter">
+
+    <p>Dear Yorki,</p>
+
+    <p>
+      If I could give you something more lasting than a gift, I would
+      wish you the kind of gentleness that stays with you after the
+      candles go out. I hope you meet people who listen to understand
+      you, places that let you breathe, and little moments that remind
+      you life can still surprise you beautifully.
+    </p>
+
+    <p>
+      I hope you never make yourself smaller to fit into someone
+      else's idea of who you should be. Keep your questions, your books,
+      your art, and your wonderfully thoughtful way of seeing things.
+      The world needs people who look a little closer—and you have that gift.
+    </p>
+
+    <p>
+      And when life feels heavy, I hope you remember this:
+      you are allowed to rest. You are allowed to be uncertain.
+      You are allowed to receive care without having to earn it by
+      being perfect, cheerful, or strong every minute.
+    </p>
+
+    <p>
+      I may not always find the perfect words, but I want my words
+      to bring you warmth, never pressure. I hope this little corner
+      of the internet makes you smile and reminds you that someone
+      took time to make something just for you.
+    </p>
+
+    <p>
+      You deserve soft mornings, peaceful evenings, books that feel
+      like old friends, art that understands your silence, and laughter
+      that arrives when you least expect it.
+    </p>
+
+    <p>
+      You matter—not just for what you do, but for who you are.
+      Your thoughts, your kindness, your little habits, and the way
+      you experience the world are all part of what makes you wonderfully you.
+    </p>
+
+    <p>
+      May this new year of your life be full of gentle surprises.
+      May you find courage for the things that scare you, patience for
+      the things that take time, and enough peace to enjoy the beautiful
+      things already around you.
+    </p>
+
+    <p class="signature">
+      With warmth, and a little stardust ✧
+    </p>
+
+  </div>
+
+  <div class="revealbox">
+    <button type="button" onclick="toggleSecret()">
+      Open a Tiny Secret ✦
+    </button>
+
+    <p id="secret" class="revealtext hidden">
+      You do not have to be extraordinary every day to be precious.
+      Even on your quietest days, you are still someone worth checking
+      on, listening to, and treating gently. You deserve care that
+      feels safe, kindness that asks for nothing in return, and room
+      to be fully yourself. ♡
+    </p>
+  </div>
+</section>
+
+<!-- FAITH AND BIBLE VERSES -->
+
+<section id="faith">
+  <div class="sectionhead">
+    <div class="eyebrow">A PRAYER FOR YOUR NEW CHAPTER</div>
+    <h2>May God Walk Beside You</h2>
+
+    <p>
+      Because your faith matters, Yorki, I wanted this little birthday
+      universe to include something more lasting than beautiful words:
+      a reminder of God's love, peace, and guidance.
+    </p>
+  </div>
+
+  <div class="bible-card">
+
+    <div class="cross">✝</div>
+
+    <div class="verse">
+      <blockquote>
+        “The Lord bless thee, and keep thee.”
+      </blockquote>
+      <cite>Numbers 6:24 — KJV</cite>
+    </div>
+
+    <div class="verse">
+      <blockquote>
+        “Be strong and of a good courage; be not afraid.”
+      </blockquote>
+      <cite>Joshua 1:9 — KJV</cite>
+    </div>
+
+    <div class="verse">
+      <blockquote>
+        “We love him, because he first loved us.”
+      </blockquote>
+      <cite>1 John 4:19 — KJV</cite>
+    </div>
+
+    <div class="verse">
+      <blockquote>
+        “And now abideth faith, hope, charity, these three;
+        but the greatest of these is charity.”
+      </blockquote>
+      <cite>1 Corinthians 13:13 — KJV</cite>
+    </div>
+
+    <div class="verse">
+      <blockquote>
+        “Trust in the Lord with all thine heart; and lean not
+        unto thine own understanding.”
+      </blockquote>
+      <cite>Proverbs 3:5 — KJV</cite>
+    </div>
+
+    <div class="blessing">
+      ኪዳነ ምሕረት ትባርክሽ።<br>
+      ሕይወትሽን ትምራሽ። ♡
+    </div>
+
+    <p>
+      May Kidane Mihret bless you and guide your life.
+      May Jesus fill your heart with peace, give you strength
+      when life feels difficult, and guide your steps toward
+      a life filled with faith, wisdom, kindness, and hope.
+    </p>
+
+    <p>
+      May you never feel alone in the difficult chapters.
+      May you find comfort in prayer, courage in faith, and
+      joy in the little blessings that appear each day.
+    </p>
+
+    <p class="signature">
+      A little prayer for you, Yorki ✧
+    </p>
+
+  </div>
+</section>
+
+<!-- BALLOON GAME: 11 TAPS -->
+
+<section id="balloon-game">
+  <div class="sectionhead">
+    <div class="eyebrow">A LITTLE BIRTHDAY CHALLENGE</div>
+    <h2>Eleven Taps for Yorki 🎈</h2>
+
+    <p>
+      There is one birthday balloon waiting for you.
+      Tap it eleven times—one tap for every bit of birthday magic—
+      and see what happens!
+    </p>
+  </div>
+
+  <div class="balloon-game">
+
+    <p class="balloon-instruction" id="balloonInstruction">
+      Ready, birthday girl? Tap the balloon!
+    </p>
+
+    <div class="balloon-stage">
+
+      <div id="balloon"
+           class="balloon"
+           role="button"
+           tabindex="0"
+           aria-label="Tap the birthday balloon eleven times"
+           onclick="tapBalloon()"
+           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();tapBalloon();}">
+
+        <span class="balloon-count" id="balloonNumber">11</span>
+
+      </div>
+
+      <div id="balloonResult" class="hidden">
+        <div class="birthday-burst">
+          YORKI!<br>
+          HAPPY BIRTHDAY! ♡
+
+          <small>
+            God bless you, today and always. ✨
+          </small>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="tap-count" id="tapCount" aria-live="polite">
+      Taps: 0 / 11
+    </p>
+
+    <p>
+      Every tap brings you closer to a little birthday surprise.
+    </p>
+
+    <div class="balloon-controls">
+      <button type="button" onclick="resetBalloon()">
+        Reset Balloon ↻
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- INTERACTIVE MESSAGES -->
+
+<section id="moods">
+  <div class="sectionhead">
+    <div class="eyebrow">A POCKET-SIZED SPELL</div>
+    <h2>Choose What Your Heart Needs</h2>
+    <p>A tiny message for whichever kind of day you are having.</p>
+  </div>
+
+  <div class="moodrow" style="text-align:center">
+    <button onclick="showMood('comfort')">
+      I Need Comfort ☾
+    </button>
+
+    <button onclick="showMood('courage')">
+      I Need Courage ✦
+    </button>
+
+    <button onclick="showMood('smile')">
+      I Need a Smile ♡
+    </button>
+  </div>
+
+  <div id="moodOutput"
+       class="revealtext"
+       style="text-align:center; min-height:80px"
+       aria-live="polite">
+  </div>
+</section>
+
+<!-- EMBEDDED YOUTUBE -->
+
+<section id="soundtrack">
+  <div class="sectionhead">
+    <div class="eyebrow">A LITTLE SOUNDTRACK</div>
+    <h2>Press Play, Stay Awhile</h2>
+
+    <p>
+      These are embedded YouTube players. Press the play button
+      inside a player to listen without leaving this webpage.
+    </p>
+
+    <p>
+      If a video is unavailable, it may be restricted by its owner,
+      your region, or the browser's playback settings.
+    </p>
+  </div>
+
+  <div class="video-grid">
+
+    <div class="video-card">
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/yKNxeF4KMsY?playsinline=1&rel=0"
+          title="Coldplay — Yellow"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h3>Yellow</h3>
+      <p>Coldplay · A Little Golden Light</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/rtOvBOTyX00?playsinline=1&rel=0"
+          title="Christina Perri — A Thousand Years"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h3>A Thousand Years</h3>
+      <p>Christina Perri · Soft and Timeless</p>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/GxldQ9eX2wo?playsinline=1&rel=0"
+          title="Stephen Sanchez — Until I Found You"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h3>Until I Found You</h3>
+      <p>Stephen Sanchez · Old-Fashioned Romance</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL BIRTHDAY MESSAGE -->
+
+<section id="birthday">
+  <div class="birthday">
+
+    <div class="eyebrow">
+      TODAY, THE STARS ARE CELEBRATING YOU
+    </div>
+
+    <h2>Happy Birthday, Yorki ♡</h2>
+
+    <p>
+      May this new chapter bring you brave beginnings, books that find
+      you at exactly the right time, art that understands what words
+      cannot, laughter that surprises you, and people who are careful
+      with your heart.
+    </p>
+
+    <p>
+      May you feel appreciated without asking, understood without
+      explaining every little thing, and supported while you become
+      whoever you are still becoming.
+    </p>
+
+    <p>
+      May Jesus bless your steps, strengthen your faith, and remind
+      you that even when life feels uncertain, there is still room
+      for hope, kindness, and beautiful new beginnings.
+    </p>
+
+    <p>
+      I hope you collect memories that become favourite stories,
+      meet people who make you feel at ease, and discover beautiful
+      things about yourself that you haven't noticed yet.
+    </p>
+
+    <p>
+      And whenever you look back on this birthday, I hope you remember
+      that someone wanted to make you smile and give you a small place
+      where you could feel celebrated.
+    </p>
+
+    <button type="button" onclick="birthdayWish()">
+      Make a Little Birthday Wish ✨
+    </button>
+
+    <p id="wishResult" class="revealtext hidden">
+      May the kindest things find their way to you.
+      May God guide your path, may peace live in your heart,
+      and may you recognize how much goodness you deserve.
+      May your dreams grow, your faith deepen, and your days
+      hold more reasons to smile. ♡
+    </p>
+
+  </div>
+</section>
+
+<section>
+  <p class="quote">
+    “The world is a book with so many pages left.
+    I hope this next chapter is gentle with you, generous to you,
+    and full of things that make your eyes light up.”
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <div style="font-size:2rem;color:var(--rose)">
+    ✧ ♡ ✝ ♡ ✧
+  </div>
+
+  <p>
+    Made especially for Yorki, with care, prayer, and a little stardust.
+  </p>
+
+  <p>
+    A small page · a sincere wish · a reminder that you are cherished.
+  </p>
+</footer>
+
+<script>
+/* STAR ANIMATION */
+
+const starbox = document.getElementById("stars");
+
+for (let i = 0; i < 100; i++) {
+  const star = document.createElement("i");
+
+  star.className = "star";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay = Math.random() * 4 + "s";
+  star.style.animationDuration = (2 + Math.random() * 4) + "s";
+  star.style.opacity = Math.random() * .7 + .1;
+
+  starbox.appendChild(star);
+}
+
+/* SCROLL PROGRESS */
+
+window.addEventListener("scroll", () => {
+  const page = document.documentElement;
+  const max = page.scrollHeight - page.clientHeight;
+
+  const percent = max > 0
+    ? (page.scrollTop / max) * 100
+    : 0;
+
+  document.getElementById("progress").style.width =
+    percent + "%";
+});
+
+/* SPARKLE EFFECT */
+
+function sparkleBurst(event) {
+  const x = event.clientX || window.innerWidth / 2;
+  const y = event.clientY || window.innerHeight / 2;
+
+  for (let i = 0; i < 28; i++) {
+    const sparkle = document.createElement("span");
+
+    sparkle.className = "sparkle";
+    sparkle.textContent = ["✦", "✧", "♡", "⋆", "✨"][i % 5];
+
+    sparkle.style.left = x + "px";
+    sparkle.style.top = y + "px";
+
+    sparkle.style.setProperty(
+      "--dx",
+      (Math.random() * 300 - 150) + "px"
+    );
+
+    sparkle.style.setProperty(
+      "--dy",
+      (Math.random() * -240 - 20) + "px"
+    );
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 950);
+  }
+}
+
+/* PHOTO UPLOAD PREVIEW */
+
+const photoURLs = {};
+
+function loadPhoto(event, imageID) {
+  const file = event.target.files && event.target.files[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    alert("Please choose an image file.");
+    return;
+  }
+
+  const image = document.getElementById(imageID);
+
+  if (photoURLs[imageID]) {
+    URL.revokeObjectURL(photoURLs[imageID]);
+  }
+
+  const imageURL = URL.createObjectURL(file);
+
+  photoURLs[imageID] = imageURL;
+  image.src = imageURL;
+
+  sparkleBurst({
+    clientX: window.innerWidth / 2,
+    clientY: window.innerHeight / 2
+  });
+}
+
+/* SECRET MESSAGE */
+
+function toggleSecret() {
+  document.getElementById("secret").classList.toggle("hidden");
+}
+
+/* MOOD MESSAGES */
+
+const messages = {
+  comfort:
+    "Take one soft breath. You don't have to solve your whole life tonight. Rest is not failure. May God give you peace for this moment and strength for the next. ♡",
+
+  courage:
+    "You have survived days you once thought would be too heavy. Take the next step at your own pace. May God guide you, and remember that courage can be quiet and still count.",
+
+  smile:
+    "Somewhere, a book is waiting to become your new favourite, a song is waiting to find you, and a future version of you is already proud that you kept going. Keep a little room for wonder. ✨"
+};
+
+function showMood(type) {
+  const output = document.getElementById("moodOutput");
+
+  output.textContent = messages[type];
+  output.classList.remove("hidden");
+
+  sparkleBurst({
+    clientX: window.innerWidth / 2,
+    clientY: window.innerHeight * .65
+  });
+}
+
+/* BIRTHDAY WISH */
+
+function birthdayWish() {
+  const result = document.getElementById("wishResult");
+
+  result.classList.toggle("hidden");
+
+  sparkleBurst({
+    clientX: window.innerWidth / 2,
+    clientY: window.innerHeight * .55
+  });
+}
+
+/* ELEVEN-TAP BALLOON GAME */
+
+let taps = 0;
+const requiredTaps = 11;
+
+const balloon = document.getElementById("balloon");
+const balloonNumber = document.getElementById("balloonNumber");
+const tapCount = document.getElementById("tapCount");
+const balloonResult = document.getElementById("balloonResult");
+const balloonInstruction =
+  document.getElementById("balloonInstruction");
+
+function tapBalloon() {
+  if (taps >= requiredTaps) return;
+
+  taps++;
+
+  balloonNumber.textContent = requiredTaps - taps;
+  tapCount.textContent = "Taps: " + taps + " / " + requiredTaps;
+
+  // Each tap makes the balloon grow a little.
+  const scale = 1 + taps * 0.045;
+
+  balloon.style.transform = "scale(" + scale + ")";
+
+  sparkleBurst({
+    clientX: window.innerWidth / 2,
+    clientY: window.innerHeight * .53
+  });
+
+  if (taps < requiredTaps) {
+    balloonInstruction.textContent =
+      taps === requiredTaps - 1
+        ? "One more tap, Yorki! 🎈"
+        : "Keep going, birthday girl! ✨";
+
+    return;
+  }
+
+  // The eleventh tap pops the balloon.
+  balloon.classList.add("popped");
+  balloonInstruction.textContent = "POP! Your birthday surprise is here!";
+
+  balloonResult.classList.remove("hidden");
+
+  tapCount.textContent = "11 / 11 — BALLOON POPPED! 🎉";
+
+  // A bigger celebration.
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      sparkleBurst({
+        clientX: window.innerWidth / 2,
+        clientY: window.innerHeight * .48
+      });
+    }, i * 300);
+  }
+}
+
+function resetBalloon() {
+  taps = 0;
+
+  balloon.classList.remove("popped");
+  balloon.style.transform = "scale(1)";
+
+  balloonNumber.textContent = requiredTaps;
+  tapCount.textContent = "Taps: 0 / 11";
+
+  balloonInstruction.textContent =
+    "Ready, birthday girl? Tap the balloon!";
+
+  balloonResult.classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
+```
